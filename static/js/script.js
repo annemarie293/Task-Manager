@@ -1,9 +1,7 @@
-//JQuery for mobile sidenav
+//JQuery for mobile sidenav, collapsible, and tooltips (from Materialize)
 $(document).ready(function(){
     $('.sidenav').sidenav({edge:"right"});
+    $('.collapsible').collapsible();
+    $('.tooltipped').tooltip();
   });
 
-//For Collapsible tasks
-$(document).ready(function(){
-  $('.collapsible').collapsible();
-});
