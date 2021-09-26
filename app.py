@@ -97,6 +97,12 @@ def logout():
     return redirect(url_for('login'))
 
 
+# Function for Add Task
+@app.route("/add_task")
+def add_task():
+    return render_template(url_for('add_task'))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
