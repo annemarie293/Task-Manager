@@ -100,7 +100,7 @@ def logout():
 # Function for Add Task
 @app.route("/add_task")
 def add_task():
-    return render_template(url_for('add_task'))
+    return render_template("add_task.html")
 
 
 if __name__ == "__main__":

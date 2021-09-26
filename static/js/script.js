@@ -1,7 +1,16 @@
-//JQuery for mobile sidenav, collapsible, and tooltips (from Materialize)
-$(document).ready(function(){
-    $('.sidenav').sidenav({edge:"right"});
-    $('.collapsible').collapsible();
-    $('.tooltipped').tooltip();
+//JQuery for mobile sidenav, collapsible, and tooltips, datepicker(from Materialize)
+$(document).ready(function () {
+  $('.sidenav').sidenav({
+    edge: "right"
   });
-
+  $('.collapsible').collapsible();
+  $('.tooltipped').tooltip();
+  $('.datepicker').datepicker({
+    format: "dd mmm, yyyy",
+    yearRange: 3,
+    showClearBtn: true,
+    i18n: {
+      done: "Select"
+    }
+  });
+});
