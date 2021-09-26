@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="light-blue-text text-darken-4 center-align">Edit Task</h3>
+
+<div class="row">
+    <form class="col s12 card-panel grey lighten-4" method="POST" action="{{ url_for('edit_task', task_id=task._id) }}">
+        <!--Category Selection-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-folder-open prefix light-blue-text text-darken-4"></i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled>Choose Category</option>
+                    {% for category in categories %}
+                            {% if category.category_name == task.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                             {% else %}
+                              <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                             {% endif %}
+                    {% endfor %}
+                </select>
+                <label for="category_name">Choose Category</label>
+            </div>
+        </div>
+        <!--Task Name-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-pencil-alt prefix light-blue-text text-darken-4"></i>
+                <input id="task_name" name="task_name" type="text" class="validate" minlength="5" maxlength="50"
+                    value="{{ task.task_name }}"required>
+                <label for="task_name">Task Name</label>
+            </div>
+        </div>
+        <!--Task Description-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
+                <textarea id="task_description" name="task_description" class="materialize-textarea validate"
+                    minlength="5" maxlength="200" required>{{- task.task_description -}}</textarea>
+                    <!-- minus symbol in task description is to remove any whitespace. can also use + to add it-->
+                <label for="task_description">Task Description</label>
+            </div>
+        </div>
+        <!--Due Date Picker-->
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-calendar-alt prefix light-blue-text text-darken-4"></i>
+                <input type="text" class="datepicker validate" id="due_date" name="due_date" value="{{ task.due_date }}" required>
+                <label for="due-date">Due Date</label>
+            </div>
+        </div>
+        <!--Is Urgent-->
+        <div class="row">
+            <div class="input-field col s12">
+                <div class="switch">
+                    <i class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                    <label for="is_urgent">
+                        {% if task.is_urgent == "on" %}
+                            <input type="checkbox" id="is_urgent" name="is_urgent" checked>
+                        {% else %}
+                            <input type="checkbox" id="is_urgent" name="is_urgent">
+                        {% endif %}
+                        <span class="lever"></span>
+                        Urgent
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!--Submit-->
+        <div class="row">
+            <div class="col s12 center-align">
+                <a href="{{ url_for('get_tasks')}}" class="btn-large red text-shadow ">Cancel<i class="fas fa-times-circle right"></i>
+                </a>
+                <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                    Edit Task <i class="fas fa-edit right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
