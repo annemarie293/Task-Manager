@@ -15,3 +15,11 @@
     margin:5px;
     line-height:45px;
 }
+
+.checked{
+    color: maroon;
+}
+
+.unchecked{
+    color: lightgrey;
+}

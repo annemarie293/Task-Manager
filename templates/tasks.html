@@ -26,9 +26,21 @@
             <strong>{{ task.category_name}}</strong>
             <p>{{ task.task_description}}</p>
             <p><em>Submitted by: {{task.created_by }}</em></p>
+        
+        {% if task.task_name == "12345" %}
+            <span class="tooltipped" data-tooltip="3 stars">
+                <span><i class="fa fa-solid fa-wine-bottle checked"></i></span>
+                <span><i class="fa fa-solid fa-wine-bottle checked"></i></span>
+                <span><i class="fa fa-solid fa-wine-bottle checked"></i></span>
+                <span><i class="fa fa-solid fa-wine-bottle unchecked"></i></span>
+                <span><i class="fa fa-solid fa-wine-bottle unchecked"></i></span>
+            </span>
+        {% endif %}
         </div>
     </li>
     {% endfor %}
 </ul>
+
+
 
 {% endblock %}
